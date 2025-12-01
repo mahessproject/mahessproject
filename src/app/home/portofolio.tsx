@@ -9,7 +9,7 @@ const portfolioItems = [
     image: "https://picsum.photos/seed/portfolio1/800/600",
     title: "UI/UX Design",
     description: "User Interface & Experience Design",
-    link: "https://drive.google.com/drive/folders/1-pmwx6EVQITdTscvDyZzPC7xJKQD8eca?hl=id",
+    link: "https://drive.google.com/drive/folders/1GNyGqtNWBwP87S9fJRnCXQXuKvdmO1le?hl=id",
   },
   {
     image: "https://picsum.photos/seed/portfolio2/800/600",
