@@ -7,7 +7,7 @@ const Slide: React.FC<SlideProps> = ({ milestone }) => {
     <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-12 lg:p-20 overflow-hidden">
       {/* Text Content Section */}
       <motion.div
-        className="w-full md:w-1/2 flex flex-col justify-center items-start z-10 md:pr-12 order-2 md:order-1 mt-8 md:mt-0 max-h-[50vh] md:max-h-none overflow-y-auto"
+        className="w-full md:w-1/2 flex flex-col justify-start items-start z-10 md:pr-12 order-2 md:order-1 mt-4 md:mt-0 max-h-[55vh] md:max-h-none overflow-y-auto pb-4"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -50 }}
