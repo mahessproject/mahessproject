@@ -44,19 +44,19 @@ export default function Footer() {
     {
       name: "LinkedIn",
       icon: LinkedInIcon,
-      href: "https://linkedin.com/in/mahes-satya-ramadhan", // Ganti dengan LinkedIn URL Anda
+      href: "https://www.linkedin.com/in/mahess-atya-77718a393/",
       color: "hover:text-blue-500",
     },
     {
       name: "Instagram",
       icon: InstagramIcon,
-      href: "https://instagram.com/mahessatya", // Ganti dengan Instagram URL Anda
+      href: "https://www.instagram.com/maahesss?igsh=MTBzeXdvOHZ0ZnM0MA==",
       color: "hover:text-pink-500",
     },
     {
       name: "Email",
       icon: EmailIcon,
-      href: "mailto:mahes.satya@email.com", // Ganti dengan email Anda
+      href: "mailto:mahessatyaa@gmail.com",
       color: "hover:text-green-500",
     },
   ];

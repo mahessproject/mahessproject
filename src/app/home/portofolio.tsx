@@ -95,7 +95,7 @@ export default function Portfolio() {
       <div className="block xl:hidden px-4">
         <div className="relative max-w-md mx-auto">
           {/* Carousel Container */}
-          <div 
+          <div
             className="relative overflow-visible"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
