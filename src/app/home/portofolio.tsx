@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import SpotlightCard from "@/components/SpotlightCard";
 
-// Portfolio items dengan 5 kategori skill
+// Portfolio items dengan 6 kategori skill
 const portfolioItems = [
   {
     image: "https://picsum.photos/seed/portfolio1/800/600",
@@ -34,6 +34,12 @@ const portfolioItems = [
     title: "Desain Grafis",
     description: "Brand Identity & Visual Design",
     link: "https://drive.google.com/drive/folders/1U7w_MOHvlvXJp8k91-UeakF06244fLaD?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio6/800/600",
+    title: "Certificates",
+    description: "Professional Certifications & Achievements",
+    link: "https://drive.google.com/drive/folders/1v0LbHQCWnhY1iNb2emslASKnkJr4iRO0?hl=id",
   },
 ];
 
