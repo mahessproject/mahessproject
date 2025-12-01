@@ -39,6 +39,8 @@ const portfolioItems = [
 
 export default function Portfolio() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const handleOpenLink = (link: string) => {
     window.open(link, "_blank", "noopener,noreferrer");
@@ -50,6 +52,34 @@ export default function Portfolio() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
+  };
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
   };
 
   return (
@@ -65,7 +95,12 @@ export default function Portfolio() {
       <div className="block xl:hidden px-4">
         <div className="relative max-w-md mx-auto">
           {/* Carousel Container */}
-          <div className="relative overflow-visible">
+          <div 
+            className="relative overflow-visible"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
