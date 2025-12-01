@@ -50,7 +50,7 @@ export default function Footer() {
     {
       name: "Instagram",
       icon: InstagramIcon,
-      href: "https://www.instagram.com/maahesss?igsh=MTBzeXdvOHZ0ZnM0MA==",
+      href: "https://www.instagram.com/maahesss",
       color: "hover:text-pink-500",
     },
     {

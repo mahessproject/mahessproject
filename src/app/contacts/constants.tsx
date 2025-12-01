@@ -32,7 +32,7 @@ export const CONTACT_INFO = {
   whatsappUrl: "https://wa.me/6285126309598",
   socials: {
     linkedin: "https://www.linkedin.com/in/mahess-atya-77718a393/",
-    instagram: "https://www.instagram.com/maahesss?igsh=MTBzeXdvOHZ0ZnM0MA==",
+    instagram: "https://www.instagram.com/maahesss",
     email: "mailto:mahessatyaa@gmail.com",
   },
 };
