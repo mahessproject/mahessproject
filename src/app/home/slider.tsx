@@ -122,13 +122,10 @@ export default function Skills() {
       {/* Header */}
       <div className="text-center mb-12 px-4">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">
-          We have 5+ skills serving millions of customers across
-        </h2>
-        <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat']">
           <span className="text-orange-400">Creative Design</span>, Video Production, Photography, UI/UX,
           <br className="hidden md:block" />
           Digital Arts, Visual Communication.
-        </div>
+        </h2>
       </div>
 
       {/* Desktop Auto-Play Stack */}
