@@ -73,9 +73,8 @@ export default function Main() {
   return (
     <div className="w-full h-screen relative bg-white overflow-hidden">
       {/* Background Video */}
-      <video className="w-full h-full object-cover absolute inset-0 z-0" autoPlay muted loop playsInline>
-        <source src="/home.mp4" type="video/mp4" />
-        <source src="/home.mov" type="video/quicktime" />
+      <video className="w-full h-full object-cover absolute inset-0 z-0" autoPlay muted loop playsInline preload="auto">
+        <source src="/home.mov" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
