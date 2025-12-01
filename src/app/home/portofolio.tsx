@@ -9,31 +9,31 @@ const portfolioItems = [
     image: "https://picsum.photos/seed/portfolio1/800/600",
     title: "UI/UX Design",
     description: "User Interface & Experience Design",
-    link: "https://drive.google.com/drive/folders/DUMMY_LINK_UIUX",
+    link: "https://drive.google.com/drive/folders/1-pmwx6EVQITdTscvDyZzPC7xJKQD8eca?hl=id",
   },
   {
     image: "https://picsum.photos/seed/portfolio2/800/600",
     title: "Video Editing",
     description: "Post Production & Color Grading",
-    link: "https://drive.google.com/drive/folders/DUMMY_LINK_VIDEOEDITING",
+    link: "https://drive.google.com/drive/folders/1uqO4sli0w4L37NbyosLdLURpJNuukc4A?hl=id",
   },
   {
     image: "https://picsum.photos/seed/portfolio3/800/600",
     title: "Videography",
     description: "Cinematography & Production",
-    link: "https://drive.google.com/drive/folders/DUMMY_LINK_VIDEOGRAPHY",
+    link: "https://drive.google.com/drive/folders/1uqO4sli0w4L37NbyosLdLURpJNuukc4A?hl=id",
   },
   {
     image: "https://picsum.photos/seed/portfolio4/800/600",
     title: "Photography",
     description: "Portrait & Event Coverage",
-    link: "https://drive.google.com/drive/folders/DUMMY_LINK_PHOTOGRAPHY",
+    link: "https://drive.google.com/drive/folders/1dwovS40a1ZvUQAevqnuzp1_Ghaa4uUbP?hl=id",
   },
   {
     image: "https://picsum.photos/seed/portfolio5/800/600",
     title: "Desain Grafis",
     description: "Brand Identity & Visual Design",
-    link: "https://drive.google.com/drive/folders/DUMMY_LINK_DESAINGRAFIS",
+    link: "https://drive.google.com/drive/folders/1U7w_MOHvlvXJp8k91-UeakF06244fLaD?hl=id",
   },
 ];
 
