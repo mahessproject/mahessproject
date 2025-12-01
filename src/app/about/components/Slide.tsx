@@ -7,14 +7,14 @@ const Slide: React.FC<SlideProps> = ({ milestone }) => {
     <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-12 lg:p-20 overflow-hidden">
       {/* Text Content Section */}
       <motion.div
-        className="w-full md:w-1/2 flex flex-col justify-center items-start z-10 md:pr-12 order-2 md:order-1 mt-8 md:mt-0"
+        className="w-full md:w-1/2 flex flex-col justify-center items-start z-10 md:pr-12 order-2 md:order-1 mt-8 md:mt-0 max-h-[50vh] md:max-h-none overflow-y-auto"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -50 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.span
-          className="text-accent text-xl md:text-2xl font-bold tracking-widest mb-2"
+          className="text-orange-500 text-lg md:text-2xl font-bold tracking-widest mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -23,7 +23,7 @@ const Slide: React.FC<SlideProps> = ({ milestone }) => {
         </motion.span>
 
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+          className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -32,7 +32,7 @@ const Slide: React.FC<SlideProps> = ({ milestone }) => {
         </motion.h1>
 
         <motion.p
-          className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-xl"
+          className="text-gray-300 text-base md:text-xl leading-relaxed max-w-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
