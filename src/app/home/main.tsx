@@ -60,7 +60,7 @@ export default function Main() {
       textColor: "#ffffff",
       links: [
         { label: "About Me", href: "/about", ariaLabel: "Learn about me" },
-        { label: "Experience", href: "/experience", ariaLabel: "View experience" },
+        { label: "Experience", href: "/about#experience", ariaLabel: "View experience" },
       ],
     },
     {
