@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import SpotlightCard from "@/components/SpotlightCard";
 
@@ -120,16 +121,26 @@ export default function Skills() {
   return (
     <div id="skills" className="w-full bg-black text-white py-16 overflow-hidden">
       {/* Header */}
-      <div className="text-center mb-12 px-4">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12 px-4"
+      >
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">
           <span className="text-orange-400">Creative Design</span>, Video Production, Photography, UI/UX,
           <br className="hidden md:block" />
           Digital Arts, Visual Communication.
         </h2>
-      </div>
+      </motion.div>
 
       {/* Desktop Auto-Play Stack */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
         className="hidden xl:block py-16 overflow-visible"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -193,7 +204,14 @@ export default function Skills() {
       <div className="xl:hidden px-4 md:px-8 lg:px-16">
         <div className="space-y-3 md:space-y-4">
           {skills.map((skill, index) => (
-            <div key={skill.id} className="overflow-hidden">
+            <motion.div 
+              key={skill.id} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="overflow-hidden"
+            >
               <SpotlightCard
                 className={`w-full ${skill.color} rounded-2xl overflow-hidden`}
                 spotlightColor="rgba(249, 115, 22, 0.25)"
@@ -234,7 +252,7 @@ export default function Skills() {
                   </div>
                 </div>
               </SpotlightCard>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

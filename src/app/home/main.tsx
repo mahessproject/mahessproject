@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import CardNav from "@/components/CardNav";
 import LogoLoop from "@/components/LogoLoop";
 import SkillSlider from "./slider";
@@ -100,18 +101,38 @@ export default function Main() {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col justify-center h-full px-4 md:px-8 lg:px-16 xl:px-24">
-        <div className="max-w-4xl">
-          <div className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold font-['Montserrat'] mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl"
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold font-['Montserrat'] mb-4"
+          >
             Hello There!
-          </div>
-          <div className="text-orange-500 text-3xl md:text-4xl lg:text-5xl font-semibold font-['Montserrat'] mb-6">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-orange-500 text-3xl md:text-4xl lg:text-5xl font-semibold font-['Montserrat'] mb-6"
+          >
             I'm Mahes Satya Ramadhan,
-          </div>
-          <div className="text-white text-lg md:text-xl lg:text-2xl font-medium font-['Montserrat'] leading-relaxed max-w-3xl">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-white text-lg md:text-xl lg:text-2xl font-medium font-['Montserrat'] leading-relaxed max-w-3xl"
+          >
             I'm a creative designer with a passion for UI/UX, photography, and videography. I focus on crafting visuals
             that are both aesthetic and functional.
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Logo Loop - Partners/Clients */}

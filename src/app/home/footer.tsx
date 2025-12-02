@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import EmailPopup from "@/components/EmailPopup";
 
 // Custom Icons
@@ -83,22 +84,38 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
           {/* Left Side - Brand & Description */}
-          <div className="flex-1 max-w-md">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex-1 max-w-md"
+          >
             <h3 className="text-2xl md:text-3xl font-bold font-['Montserrat'] mb-4">Mahes Satya Ramadhan</h3>
             <p className="text-white/70 leading-relaxed text-sm md:text-base">
               Creative designer passionate about crafting beautiful digital experiences through UI/UX design,
               photography, and videography.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Side - Social Links */}
-          <div className="flex flex-col items-start md:items-end gap-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start md:items-end gap-6"
+          >
             <div>
               <p className="text-white/50 text-sm font-medium font-['Montserrat'] mb-4">Connect with me</p>
               <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
+                {socialLinks.map((social, index) => (
+                  <motion.a
                     key={social.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -106,7 +123,7 @@ export default function Footer() {
                     aria-label={`Visit my ${social.name}`}
                   >
                     <social.icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -120,7 +137,7 @@ export default function Footer() {
               <span className="text-sm font-medium">Back to top</span>
               <ArrowUpIcon className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" />
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* Divider */}

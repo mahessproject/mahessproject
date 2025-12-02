@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
 
 // Portfolio items dengan 6 kategori skill
@@ -91,11 +92,17 @@ export default function Portfolio() {
   return (
     <div id="portfolio" className="w-full bg-black text-white py-16 overflow-hidden">
       {/* Header */}
-      <div className="text-center mb-12 px-4">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12 px-4"
+      >
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">Portfolio</h2>
         <p className="text-lg md:text-xl text-gray-400 font-['Montserrat']">Explore my creative works and projects</p>
         <p className="text-sm md:text-base text-gray-500 mt-2">Click to view project details</p>
-      </div>
+      </motion.div>
 
       {/* Carousel for Mobile, Tablet, and Desktop */}
       <div className="block xl:hidden px-4">
@@ -156,23 +163,45 @@ export default function Portfolio() {
       {/* Grid View only for Extra Large screens */}
       <div className="hidden xl:block">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {portfolioItems.map((item, index) => (
-              <SpotlightCard key={index} className="cursor-pointer p-6" spotlightColor="rgba(249, 115, 22, 0.25)">
-                {/* Content */}
-                <div className="flex flex-col items-start">
-                  <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
-                  <button
-                    onClick={() => handleOpenLink(item.link)}
-                    className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300"
-                  >
-                    View Project
-                  </button>
-                </div>
-              </SpotlightCard>
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                }}
+              >
+                <SpotlightCard className="cursor-pointer p-6" spotlightColor="rgba(249, 115, 22, 0.25)">
+                  {/* Content */}
+                  <div className="flex flex-col items-start">
+                    <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
+                    <button
+                      onClick={() => handleOpenLink(item.link)}
+                      className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300"
+                    >
+                      View Project
+                    </button>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
