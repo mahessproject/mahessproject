@@ -24,6 +24,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Mahes Satya Ramadhan - Creative Designer",
   description: "Creative designer specializing in UI/UX, photography, and videography",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
