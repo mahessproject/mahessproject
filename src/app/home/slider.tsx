@@ -121,7 +121,7 @@ export default function Skills() {
   return (
     <div id="skills" className="w-full bg-black text-white py-16 overflow-hidden">
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -204,8 +204,8 @@ export default function Skills() {
       <div className="xl:hidden px-4 md:px-8 lg:px-16">
         <div className="space-y-3 md:space-y-4">
           {skills.map((skill, index) => (
-            <motion.div 
-              key={skill.id} 
+            <motion.div
+              key={skill.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
