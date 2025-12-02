@@ -8,7 +8,7 @@ export default function AboutMe() {
   return (
     <div id="about-me" className="w-full bg-orange-500 text-white py-16 md:py-20 px-4 md:px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -20,7 +20,7 @@ export default function AboutMe() {
 
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -39,7 +39,7 @@ export default function AboutMe() {
           </motion.div>
 
           {/* Text Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

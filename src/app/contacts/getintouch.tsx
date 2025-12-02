@@ -98,7 +98,7 @@ export default function GetInTouch() {
             <div className="order-2 lg:order-1 space-y-10">
               {/* Header Section */}
               <div className="space-y-4">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -110,7 +110,7 @@ export default function GetInTouch() {
                   </span>
                   Available for new projects
                 </motion.div>
-                <motion.h1 
+                <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -121,7 +121,7 @@ export default function GetInTouch() {
                     Conversation.
                   </span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -133,7 +133,7 @@ export default function GetInTouch() {
               </div>
 
               {/* Action Buttons Grid */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -189,11 +189,11 @@ export default function GetInTouch() {
               </motion.div>
 
               {/* Footer / Socials */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                id="social" 
+                id="social"
                 className="pt-4 border-t border-zinc-800"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -207,7 +207,7 @@ export default function GetInTouch() {
             </div>
 
             {/* Right Column: Hero Image */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -225,7 +225,7 @@ export default function GetInTouch() {
                 />
 
                 {/* Floating Quote Card */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
