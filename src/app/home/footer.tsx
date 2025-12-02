@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
           {/* Left Side - Brand & Description */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -99,7 +99,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Right Side - Social Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

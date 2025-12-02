@@ -92,7 +92,7 @@ export default function Portfolio() {
   return (
     <div id="portfolio" className="w-full bg-black text-white py-16 overflow-hidden">
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -163,7 +163,7 @@ export default function Portfolio() {
       {/* Grid View only for Extra Large screens */}
       <div className="hidden xl:block">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -172,9 +172,9 @@ export default function Portfolio() {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.1
-                }
-              }
+                  staggerChildren: 0.1,
+                },
+              },
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
@@ -183,7 +183,7 @@ export default function Portfolio() {
                 key={index}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                 }}
               >
                 <SpotlightCard className="cursor-pointer p-6" spotlightColor="rgba(249, 115, 22, 0.25)">

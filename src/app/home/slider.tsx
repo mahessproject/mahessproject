@@ -198,7 +198,7 @@ export default function Skills() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Dropdown */}
       <div className="xl:hidden px-4 md:px-8 lg:px-16">
