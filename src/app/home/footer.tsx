@@ -45,7 +45,7 @@ export default function Footer() {
     {
       name: "LinkedIn",
       icon: LinkedInIcon,
-      href: "https://www.linkedin.com/in/mahess-atya-77718a393/",
+      href: "https://www.linkedin.com/in/mahess-atya-77718a393",
       color: "hover:text-blue-500",
     },
     {
