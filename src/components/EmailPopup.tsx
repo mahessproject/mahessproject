@@ -91,7 +91,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
               data-gramm="false"
               data-gramm_editor="false"
               data-enable-grammarly="false"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400"
               placeholder="Your name"
               onChange={(e) => {
                 const name = e.target.value.trim();
@@ -116,7 +116,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
               data-gramm="false"
               data-gramm_editor="false"
               data-enable-grammarly="false"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400"
               placeholder="your.email@example.com"
               onChange={(e) => {
                 const hiddenField = document.getElementById("user_email_hidden") as HTMLInputElement;
@@ -135,7 +135,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
               data-gramm="false"
               data-gramm_editor="false"
               data-enable-grammarly="false"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none text-gray-900 placeholder:text-gray-400"
               placeholder="Tell me about your project..."
             />
           </div>
