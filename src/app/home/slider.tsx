@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import SpotlightCard from "@/components/SpotlightCard";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Custom Icon for Mobile
 const ChevronDownIcon = ({ className }: { className?: string }) => (
@@ -35,7 +36,7 @@ interface Skill {
   }[];
 }
 
-const skills: Skill[] = [
+const skillsEn: Skill[] = [
   {
     id: "uiux",
     title: "UI/UX",
@@ -49,7 +50,7 @@ const skills: Skill[] = [
   },
   {
     id: "graphic",
-    title: "Desain Grafis",
+    title: "Graphic Design",
     color: "bg-gray-800",
     items: [
       { name: "Brand Identity", description: "Creating cohesive visual brand systems" },
@@ -88,10 +89,67 @@ const skills: Skill[] = [
   },
 ];
 
+const skillsId: Skill[] = [
+  {
+    id: "uiux",
+    title: "UI/UX",
+    color: "bg-gray-800",
+    items: [
+      { name: "Riset Pengguna", description: "Memahami kebutuhan dan perilaku pengguna" },
+      { name: "Wireframing", description: "Membuat struktur dan cetak biru tata letak" },
+      { name: "Prototyping", description: "Membangun mockup desain interaktif" },
+      { name: "Pengujian Pengguna", description: "Memvalidasi keputusan desain dengan pengguna asli" },
+    ],
+  },
+  {
+    id: "graphic",
+    title: "Desain Grafis",
+    color: "bg-gray-800",
+    items: [
+      { name: "Identitas Brand", description: "Menciptakan sistem visual merek yang kohesif" },
+      { name: "Desain Logo", description: "Merancang tanda merek yang berkesan" },
+    ],
+  },
+  {
+    id: "video",
+    title: "Pengeditan Video",
+    color: "bg-gray-800",
+    items: [
+      { name: "Pasca Produksi", description: "Pengeditan dan penyusunan video profesional" },
+      { name: "Grading Warna", description: "Meningkatkan suasana visual dan estetika" },
+      { name: "Motion Graphics", description: "Menambahkan elemen animasi dan efek" },
+    ],
+  },
+  {
+    id: "videography",
+    title: "Videografi",
+    color: "bg-gray-800",
+    items: [
+      { name: "Sinematografi", description: "Teknik pengambilan gambar video profesional" },
+      { name: "Pencahayaan", description: "Menciptakan kondisi pencahayaan yang sempurna" },
+      { name: "Operasi Kamera", description: "Penanganan ahli peralatan video" },
+    ],
+  },
+  {
+    id: "photography",
+    title: "Fotografi",
+    color: "bg-gray-800",
+    items: [
+      { name: "Fotografi Potret", description: "Mengambil potret pribadi yang menakjubkan" },
+      { name: "Fotografi Acara", description: "Mendokumentasikan momen dan acara khusus" },
+      { name: "Pengeditan Foto", description: "Pemrosesan pasca dan retouching profesional" },
+    ],
+  },
+];
+
 export default function Skills() {
   const [openDropdowns, setOpenDropdowns] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const { language } = useLanguage();
+
+  // Use translations
+  const skills = language === "en" ? skillsEn : skillsId;
 
   // Auto-play functionality
   React.useEffect(() => {
@@ -129,9 +187,19 @@ export default function Skills() {
         className="text-center mb-12 px-4"
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">
-          <span className="text-orange-400">Creative Design</span>, Video Production, Photography, UI/UX,
-          <br className="hidden md:block" />
-          Digital Arts, Visual Communication.
+          {language === "en" ? (
+            <>
+              <span className="text-orange-400">Creative Design</span>, Video Production, Photography, UI/UX,
+              <br className="hidden md:block" />
+              Digital Arts, Visual Communication.
+            </>
+          ) : (
+            <>
+              <span className="text-orange-400">Desain Kreatif</span>, Produksi Video, Fotografi, UI/UX,
+              <br className="hidden md:block" />
+              Seni Digital, Komunikasi Visual.
+            </>
+          )}
         </h2>
       </motion.div>
 

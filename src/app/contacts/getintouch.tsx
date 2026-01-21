@@ -9,10 +9,12 @@ import ActionButton from "./components/ActionButton";
 import SocialRow from "./components/SocialRow";
 import Toast from "./components/Toast";
 import { CONTACT_INFO } from "./constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function GetInTouch() {
   const [copied, setCopied] = useState(false);
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const { language } = useLanguage();
 
   const handleCopyEmail = async () => {
     try {
@@ -35,36 +37,42 @@ export default function GetInTouch() {
 
   const navItems = [
     {
-      label: "Work",
+      label: language === "en" ? "Work" : "Karya",
       bgColor: "#1a1a1a",
       textColor: "#ffffff",
       links: [
         {
-          label: "Portfolio",
+          label: language === "en" ? "Portfolio" : "Portofolio",
           href: "/#portfolio",
           ariaLabel: "View portfolio",
         },
         {
-          label: "Skills",
+          label: language === "en" ? "Skills" : "Keahlian",
           href: "/#skills",
           ariaLabel: "View skills",
         },
       ],
     },
     {
-      label: "About",
+      label: language === "en" ? "About" : "Tentang",
       bgColor: "#f97316",
       textColor: "#ffffff",
       links: [
-        { label: "About Me", href: "/about", ariaLabel: "Learn about me" },
-        { label: "Experience", href: "/about#experience", ariaLabel: "View experience" },
+        { label: language === "en" ? "About Me" : "Tentang Saya", href: "/about", ariaLabel: "Learn about me" },
+        {
+          label: language === "en" ? "Experience" : "Pengalaman",
+          href: "/about#experience",
+          ariaLabel: "View experience",
+        },
       ],
     },
     {
-      label: "Contact",
+      label: language === "en" ? "Contact" : "Kontak",
       bgColor: "#3b82f6",
       textColor: "#ffffff",
-      links: [{ label: "Get in Touch", href: "/contacts", ariaLabel: "Contact me" }],
+      links: [
+        { label: language === "en" ? "Get in Touch" : "Hubungi Kami", href: "/contacts", ariaLabel: "Contact me" },
+      ],
     },
   ];
 
@@ -80,7 +88,7 @@ export default function GetInTouch() {
           menuColor="#ffffff"
           buttonBgColor="#f97316"
           buttonTextColor="#ffffff"
-          buttonText="Hire Me"
+          buttonText={language === "en" ? "Hire Me" : "Rekrut Saya"}
           onButtonClick={() => {
             setIsEmailPopupOpen(true);
           }}
@@ -108,7 +116,7 @@ export default function GetInTouch() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                   </span>
-                  Available for new projects
+                  {language === "en" ? "Available for new projects" : "Tersedia untuk proyek baru"}
                 </motion.div>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
@@ -116,9 +124,10 @@ export default function GetInTouch() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-['Montserrat']"
                 >
-                  Let's Start a <br />
+                  {language === "en" ? "Let's Start a " : "Mari Mulai "}
+                  <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">
-                    Conversation.
+                    {language === "en" ? "Conversation." : "Percakapan."}
                   </span>
                 </motion.h1>
                 <motion.p
@@ -127,8 +136,9 @@ export default function GetInTouch() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-lg text-zinc-400 max-w-lg leading-relaxed font-['Montserrat']"
                 >
-                  I'd love to hear from you. Whether you have a question, a project in mind, or just want to say hi, I'm
-                  all ears. No forms, just direct access.
+                  {language === "en"
+                    ? "I'd love to hear from you. Whether you have a question, a project in mind, or just want to say hi, I'm all ears. No forms, just direct access."
+                    : "Saya ingin mendengar kabar dari Anda. Apakah Anda memiliki pertanyaan, rencana proyek, atau hanya ingin menyapa, saya siap mendengarkan. Tanpa formulir, akses langsung."}
                 </motion.p>
               </div>
 
@@ -143,14 +153,14 @@ export default function GetInTouch() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <ActionButton
                     icon={Calendar}
-                    title="Book a Meeting"
-                    subtitle="Schedule via WhatsApp"
+                    title={language === "en" ? "Book a Meeting" : "Jadwalkan Pertemuan"}
+                    subtitle={language === "en" ? "Schedule via WhatsApp" : "Jadwalkan via WhatsApp"}
                     href={CONTACT_INFO.whatsappUrl}
                     variant="primary"
                   />
                   <ActionButton
                     icon={Mail}
-                    title="Email Me"
+                    title={language === "en" ? "Email Me" : "Email Saya"}
                     subtitle={CONTACT_INFO.email}
                     href={`mailto:${CONTACT_INFO.email}`}
                     variant="secondary"
@@ -161,7 +171,7 @@ export default function GetInTouch() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <ActionButton
                     icon={Phone}
-                    title="Call Me"
+                    title={language === "en" ? "Call Me" : "Hubungi Saya"}
                     subtitle={CONTACT_INFO.phone}
                     href={CONTACT_INFO.whatsappUrl}
                     variant="secondary"
@@ -169,7 +179,7 @@ export default function GetInTouch() {
                   <ActionButton
                     icon={MessageCircle}
                     title="WhatsApp"
-                    subtitle="Chat directly with me"
+                    subtitle={language === "en" ? "Chat directly with me" : "Chat langsung dengan saya"}
                     href={CONTACT_INFO.whatsappUrl}
                     variant="secondary"
                   />
@@ -179,8 +189,8 @@ export default function GetInTouch() {
                 <div className="grid sm:grid-cols-1">
                   <ActionButton
                     icon={Copy}
-                    title="Copy Email Address"
-                    subtitle="Save to clipboard for later"
+                    title={language === "en" ? "Copy Email Address" : "Salin Alamat Email"}
+                    subtitle={language === "en" ? "Save to clipboard for later" : "Simpan ke clipboard untuk nanti"}
                     onClick={handleCopyEmail}
                     variant="secondary"
                     className="bg-zinc-900 border-dashed"
@@ -199,7 +209,9 @@ export default function GetInTouch() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-zinc-500 text-sm font-['Montserrat']">
                     <MapPin size={16} />
-                    <span>Jakarta, Indonesia • Remote Friendly</span>
+                    <span>
+                      {language === "en" ? "Jakarta, Indonesia • Remote Friendly" : "Jakarta, Indonesia • Bisa Remote"}
+                    </span>
                   </div>
                   <SocialRow />
                 </div>
@@ -232,15 +244,23 @@ export default function GetInTouch() {
                   className="absolute bottom-8 left-8 right-8 z-20 bg-black/40 backdrop-blur-md border border-white/10 p-6 rounded-2xl"
                 >
                   <p className="text-lg font-light italic text-white mb-4 font-['Montserrat']">
-                    "Communication is the bridge between confusion and clarity."
+                    {language === "en"
+                      ? '"Communication is the bridge between confusion and clarity."'
+                      : '"Komunikasi adalah jembatan antara kebingungan dan kejelasan."'}
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white font-['Montserrat']">
-                      MS
+                    <div className="w-10 h-10 rounded-full bg-orange-500 relative shrink-0">
+                      <img
+                        src="/aboutme/dot.svg"
+                        alt="Logo"
+                        className="w-14 h-14 max-w-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      />
                     </div>
                     <div>
                       <div className="text-sm font-bold text-white font-['Montserrat']">Mahes Satya</div>
-                      <div className="text-xs text-zinc-400 font-['Montserrat']">Creative Designer & Developer</div>
+                      <div className="text-xs text-zinc-400 font-['Montserrat']">
+                        {language === "en" ? "Creative Designer & Developer" : "Desainer Kreatif & Pengembang"}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -252,7 +272,11 @@ export default function GetInTouch() {
           </div>
         </main>
 
-        <Toast message="Email copied to clipboard!" isVisible={copied} onClose={() => setCopied(false)} />
+        <Toast
+          message={language === "en" ? "Email copied to clipboard!" : "Email berhasil disalin!"}
+          isVisible={copied}
+          onClose={() => setCopied(false)}
+        />
 
         {/* Email Popup */}
         <EmailPopup isOpen={isEmailPopupOpen} onClose={() => setIsEmailPopupOpen(false)} />

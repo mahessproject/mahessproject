@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Portfolio items dengan 6 kategori skill
-const portfolioItems = [
+const portfolioItemsEn = [
   {
     image: "https://picsum.photos/seed/portfolio1/800/600",
     title: "UI/UX Design",
@@ -32,7 +33,7 @@ const portfolioItems = [
   },
   {
     image: "https://picsum.photos/seed/portfolio5/800/600",
-    title: "Desain Grafis",
+    title: "Graphic Design",
     description: "Brand Identity & Visual Design",
     link: "https://drive.google.com/drive/folders/1U7w_MOHvlvXJp8k91-UeakF06244fLaD?hl=id",
   },
@@ -44,10 +45,52 @@ const portfolioItems = [
   },
 ];
 
+const portfolioItemsId = [
+  {
+    image: "https://picsum.photos/seed/portfolio1/800/600",
+    title: "Desain UI/UX",
+    description: "Desain Antarmuka & Pengalaman Pengguna",
+    link: "https://drive.google.com/drive/folders/1GNyGqtNWBwP87S9fJRnCXQXuKvdmO1le?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio2/800/600",
+    title: "Pengeditan Video",
+    description: "Pasca Produksi & Color Grading",
+    link: "https://drive.google.com/drive/folders/1uqO4sli0w4L37NbyosLdLURpJNuukc4A?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio3/800/600",
+    title: "Videografi",
+    description: "Sinematografi & Produksi",
+    link: "https://drive.google.com/drive/folders/1uqO4sli0w4L37NbyosLdLURpJNuukc4A?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio4/800/600",
+    title: "Fotografi",
+    description: "Potret & Liputan Acara",
+    link: "https://drive.google.com/drive/folders/1dwovS40a1ZvUQAevqnuzp1_Ghaa4uUbP?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio5/800/600",
+    title: "Desain Grafis",
+    description: "Identitas Brand & Desain Visual",
+    link: "https://drive.google.com/drive/folders/1U7w_MOHvlvXJp8k91-UeakF06244fLaD?hl=id",
+  },
+  {
+    image: "https://picsum.photos/seed/portfolio6/800/600",
+    title: "Sertifikat",
+    description: "Sertifikasi Profesional & Pencapaian",
+    link: "https://drive.google.com/drive/folders/1v0LbHQCWnhY1iNb2emslASKnkJr4iRO0?hl=id",
+  },
+];
+
 export default function Portfolio() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const { language } = useLanguage();
+
+  const portfolioItems = language === "en" ? portfolioItemsEn : portfolioItemsId;
 
   const handleOpenLink = (link: string) => {
     window.open(link, "_blank", "noopener,noreferrer");
@@ -99,9 +142,15 @@ export default function Portfolio() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12 px-4"
       >
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">Portfolio</h2>
-        <p className="text-lg md:text-xl text-gray-400 font-['Montserrat']">Explore my creative works and projects</p>
-        <p className="text-sm md:text-base text-gray-500 mt-2">Click to view project details</p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-['Montserrat'] mb-4">
+          {language === "en" ? "Portfolio" : "Portofolio"}
+        </h2>
+        <p className="text-lg md:text-xl text-gray-400 font-['Montserrat']">
+          {language === "en" ? "Explore my creative works and projects" : "Jelajahi karya kreatif dan proyek saya"}
+        </p>
+        <p className="text-sm md:text-base text-gray-500 mt-2">
+          {language === "en" ? "Click to view project details" : "Klik untuk melihat detail proyek"}
+        </p>
       </motion.div>
 
       {/* Carousel for Mobile, Tablet, and Desktop */}
@@ -129,7 +178,7 @@ export default function Portfolio() {
                         onClick={() => handleOpenLink(item.link)}
                         className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300"
                       >
-                        View Project
+                        {language === "en" ? "View Project" : "Lihat Proyek"}
                       </button>
                     </div>
                   </SpotlightCard>
@@ -195,7 +244,7 @@ export default function Portfolio() {
                       onClick={() => handleOpenLink(item.link)}
                       className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300"
                     >
-                      View Project
+                      {language === "en" ? "View Project" : "Lihat Proyek"}
                     </button>
                   </div>
                 </SpotlightCard>

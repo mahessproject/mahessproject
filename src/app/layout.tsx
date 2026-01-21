@@ -4,6 +4,8 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { LanguageProvider } from "@/context/LanguageContext";
+import FloatingLanguageSwitcher from "@/components/FloatingLanguageSwitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,20 +41,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased overflow-x-hidden`}
       >
-        <SmoothScroll />
-        {children}
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+        <LanguageProvider>
+          <SmoothScroll />
+          {children}
+          <FloatingLanguageSwitcher />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </LanguageProvider>
       </body>
     </html>
   );

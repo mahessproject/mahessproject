@@ -3,8 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutMe() {
+  const { t, language } = useLanguage();
+
   return (
     <div id="about-me" className="w-full bg-orange-500 text-white py-16 md:py-20 px-4 md:px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
@@ -15,7 +18,7 @@ export default function AboutMe() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold font-['Montserrat'] mb-8 text-center"
         >
-          About Me
+          {t("about_me", "About Me", "Tentang Saya")}
         </motion.h1>
 
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -47,14 +50,34 @@ export default function AboutMe() {
             className="flex-1"
           >
             <p className="text-lg md:text-xl font-['Montserrat'] leading-relaxed text-center md:text-left">
-              I'm <span className="font-semibold">Mahes Satya Ramadhan Lubis</span>, known as{" "}
-              <span className="font-semibold">Mahes</span>, a passionate student from{" "}
-              <span className="font-medium">SMK Negeri 40 Jakarta</span> majoring in{" "}
-              <span className="font-medium">Software Engineering</span> (Rekayasa Perangkat Lunak). I possess strong
-              skills and talent in developing <span className="font-medium">CMS-based websites</span> (Content
-              Management System) and creating intuitive <span className="font-medium">UI/UX designs</span>. With a keen
-              eye for detail and a passion for innovation, I strive to craft digital experiences that are both visually
-              appealing and functionally robust, bridging the gap between creative design and technical implementation.
+              {language === "en" ? (
+                <>
+                  I'm <span className="font-semibold">Mahes Satya Ramadhan Lubis</span>, also known as{" "}
+                  <span className="font-semibold">Mahes</span>, a student from{" "}
+                  <span className="font-medium">SMK Negeri 40 Jakarta</span>. While I have a background in software
+                  engineering, my true passion lies in the <span className="font-medium">visual arts</span>. I aspire to
+                  pursue a career in <span className="font-medium">Photography</span> and{" "}
+                  <span className="font-medium">Videography</span>, capturing moments and telling stories through the
+                  lens. Additionally, I am proficient in <span className="font-medium">UI Design</span> and{" "}
+                  <span className="font-medium">Graphic Design</span>, creating engaging social media feeds, posters,
+                  and digital interfaces. I consider myself a <span className="font-medium">universal creative</span>,
+                  ready to apply my visual skills wherever they are needed to create impactful work.
+                </>
+              ) : (
+                <>
+                  Saya <span className="font-semibold">Mahes Satya Ramadhan Lubis</span>, atau biasa dipanggil{" "}
+                  <span className="font-semibold">Mahes</span>, seorang siswa dari{" "}
+                  <span className="font-medium">SMK Negeri 40 Jakarta</span>. Meskipun saya memiliki latar belakang di
+                  rekayasa perangkat lunak, hasrat terbesar saya ada pada{" "}
+                  <span className="font-medium">seni visual</span>. Saya bercita-cita untuk berkarir di bidang{" "}
+                  <span className="font-medium">Fotografi</span> dan <span className="font-medium">Videografi</span>,
+                  mengabadikan momen dan bercerita melalui lensa. Selain itu, saya juga mahir dalam{" "}
+                  <span className="font-medium">Desain UI</span> dan <span className="font-medium">Desain Grafis</span>,
+                  membuat konten media sosial, poster, dan antarmuka digital yang menarik. Saya menganggap diri saya
+                  sebagai <span className="font-medium">kreator visual yang universal</span>, siap menerapkan
+                  keterampilan visual saya di mana pun dibutuhkan untuk menghasilkan karya yang berdampak.
+                </>
+              )}
             </p>
           </motion.div>
         </div>

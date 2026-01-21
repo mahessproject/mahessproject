@@ -1,24 +1,28 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { AnimatePresence } from "framer-motion";
 import CardNav from "@/components/CardNav";
 import EmailPopup from "@/components/EmailPopup";
-import { MILESTONES } from "./constants";
+import { MILESTONES_EN, MILESTONES_ID } from "./constants";
 import Slide from "./components/Slide";
 import Navigation from "./components/Navigation";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Experience() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const { language } = useLanguage();
+
+  const milestones = useMemo(() => (language === "en" ? MILESTONES_EN : MILESTONES_ID), [language]);
 
   const handleNext = useCallback(() => {
-    if (currentIndex < MILESTONES.length - 1) {
+    if (currentIndex < milestones.length - 1) {
       setDirection(1);
       setCurrentIndex((prev) => prev + 1);
     }
-  }, [currentIndex]);
+  }, [currentIndex, milestones.length]);
 
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
@@ -32,7 +36,7 @@ export default function Experience() {
       setDirection(index > currentIndex ? 1 : -1);
       setCurrentIndex(index);
     },
-    [currentIndex]
+    [currentIndex],
   );
 
   const scrollToExperience = () => {
@@ -69,36 +73,48 @@ export default function Experience() {
   // Data untuk CardNav
   const navItems = [
     {
-      label: "Work",
+      label: language === "en" ? "Work" : "Karya",
       bgColor: "#1a1a1a",
       textColor: "#ffffff",
       links: [
         {
-          label: "Portfolio",
+          label: language === "en" ? "Portfolio" : "Portofolio",
           href: "/#portfolio",
           ariaLabel: "View portfolio",
         },
         {
-          label: "Skills",
+          label: language === "en" ? "Skills" : "Keahlian",
           href: "/#skills",
           ariaLabel: "View skills",
         },
       ],
     },
     {
-      label: "About",
+      label: language === "en" ? "About" : "Tentang",
       bgColor: "#f97316",
       textColor: "#ffffff",
       links: [
-        { label: "About Me", href: "#about-me", ariaLabel: "Learn about me", onClick: scrollToAboutMe },
-        { label: "Experience", href: "#experience", ariaLabel: "View experience", onClick: scrollToExperience },
+        {
+          label: language === "en" ? "About Me" : "Tentang Saya",
+          href: "#about-me",
+          ariaLabel: "Learn about me",
+          onClick: scrollToAboutMe,
+        },
+        {
+          label: language === "en" ? "Experience" : "Pengalaman",
+          href: "#experience",
+          ariaLabel: "View experience",
+          onClick: scrollToExperience,
+        },
       ],
     },
     {
-      label: "Contact",
+      label: language === "en" ? "Contact" : "Kontak",
       bgColor: "#3b82f6",
       textColor: "#ffffff",
-      links: [{ label: "Get in Touch", href: "/contacts", ariaLabel: "Contact me" }],
+      links: [
+        { label: language === "en" ? "Get in Touch" : "Hubungi Kami", href: "/contacts", ariaLabel: "Contact me" },
+      ],
     },
   ];
 
@@ -114,7 +130,7 @@ export default function Experience() {
           menuColor="#ffffff"
           buttonBgColor="#f97316"
           buttonTextColor="#ffffff"
-          buttonText="Hire Me"
+          buttonText={language === "en" ? "Hire Me" : "Rekrut Saya"}
           onButtonClick={() => {
             setIsEmailPopupOpen(true);
           }}
@@ -124,13 +140,13 @@ export default function Experience() {
       {/* Main Content */}
       <div className="relative h-screen flex items-center justify-center px-4 md:px-8 lg:px-16">
         <AnimatePresence mode="wait" custom={direction}>
-          <Slide key={currentIndex} milestone={MILESTONES[currentIndex]} direction={direction} />
+          <Slide key={currentIndex} milestone={milestones[currentIndex]} direction={direction} />
         </AnimatePresence>
       </div>
 
       {/* Navigation */}
       <Navigation
-        milestones={MILESTONES}
+        milestones={milestones}
         currentIndex={currentIndex}
         onSelect={handleSelect}
         onNext={handleNext}

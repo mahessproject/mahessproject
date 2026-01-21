@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import EmailPopup from "@/components/EmailPopup";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Custom Icons
 const LinkedInIcon = ({ className }: { className?: string }) => (
@@ -36,6 +37,7 @@ const ArrowUpIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const { language } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -77,7 +79,7 @@ export default function Footer() {
             onClick={() => setIsEmailPopupOpen(true)}
             className="w-full bg-orange-500 text-white py-4 rounded-xl font-semibold font-['Montserrat'] hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            Hire Me
+            {language === "en" ? "Hire Me" : "Rekrut Saya"}
           </button>
         </div>
 
@@ -93,8 +95,9 @@ export default function Footer() {
           >
             <h3 className="text-2xl md:text-3xl font-bold font-['Montserrat'] mb-4">Mahes Satya Ramadhan</h3>
             <p className="text-white/70 leading-relaxed text-sm md:text-base">
-              Creative designer passionate about crafting beautiful digital experiences through UI/UX design,
-              photography, and videography.
+              {language === "en"
+                ? "Creative designer passionate about crafting beautiful digital experiences through UI/UX design, photography, and videography."
+                : "Desainer kreatif yang bersemangat menciptakan pengalaman digital yang indah melalui desain UI/UX, fotografi, dan videografi."}
             </p>
           </motion.div>
 
@@ -107,7 +110,9 @@ export default function Footer() {
             className="flex flex-col items-start md:items-end gap-6"
           >
             <div>
-              <p className="text-white/50 text-sm font-medium font-['Montserrat'] mb-4">Connect with me</p>
+              <p className="text-white/50 text-sm font-medium font-['Montserrat'] mb-4">
+                {language === "en" ? "Connect with me" : "Terhubung dengan saya"}
+              </p>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -120,7 +125,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`p-3 bg-white/5 rounded-full transition-all duration-300 ${social.color} hover:bg-white/10 hover:scale-110 group`}
-                    aria-label={`Visit my ${social.name}`}
+                    aria-label={`${language === "en" ? "Visit my" : "Kunjungi"} ${social.name}`}
                   >
                     <social.icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                   </motion.a>
@@ -132,9 +137,9 @@ export default function Footer() {
             <button
               onClick={scrollToTop}
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 group"
-              aria-label="Scroll to top"
+              aria-label={language === "en" ? "Scroll to top" : "Kembali ke atas"}
             >
-              <span className="text-sm font-medium">Back to top</span>
+              <span className="text-sm font-medium">{language === "en" ? "Back to top" : "Kembali ke atas"}</span>
               <ArrowUpIcon className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" />
             </button>
           </motion.div>
@@ -145,13 +150,16 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
-          <p>© {new Date().getFullYear()} Mahes Satya Ramadhan. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Mahes Satya Ramadhan.{" "}
+            {language === "en" ? "All rights reserved." : "Hak cipta dilindungi undang-undang."}
+          </p>
           <div className="flex items-center gap-6">
             <a href="/privacy" className="hover:text-white transition-colors duration-300">
-              Privacy Policy
+              {language === "en" ? "Privacy Policy" : "Kebijakan Privasi"}
             </a>
             <a href="/terms" className="hover:text-white transition-colors duration-300">
-              Terms of Service
+              {language === "en" ? "Terms of Service" : "Ketentuan Layanan"}
             </a>
           </div>
         </div>
