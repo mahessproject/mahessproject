@@ -29,7 +29,7 @@ export default function AboutMe() {
           >
             <div className="relative w-64 h-80 md:w-full md:h-96 mx-auto rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/aboutme/aboutme.jpg"
+                src="/aboutme/aboutme.svg"
                 alt="Mahes Satya Ramadhan Lubis"
                 fill
                 className="object-cover object-top"

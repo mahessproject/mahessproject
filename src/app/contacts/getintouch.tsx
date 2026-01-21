@@ -219,7 +219,7 @@ export default function GetInTouch() {
 
                 {/* Image */}
                 <img
-                  src="/aboutme/aboutme.jpg"
+                  src="/aboutme/aboutme.svg"
                   alt="Mahes Satya Ramadhan"
                   className="w-full h-[600px] object-cover object-top transition-transform duration-700 group-hover:scale-105 opacity-80"
                 />
