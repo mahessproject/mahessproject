@@ -85,51 +85,12 @@ const portfolioItemsId = [
 ];
 
 export default function Portfolio() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
   const { language } = useLanguage();
 
   const portfolioItems = language === "en" ? portfolioItemsEn : portfolioItemsId;
 
   const handleOpenLink = (link: string) => {
     window.open(link, "_blank", "noopener,noreferrer");
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % portfolioItems.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
-  };
-
-  // Touch handlers for swipe
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      nextSlide();
-    }
-    if (isRightSwipe) {
-      prevSlide();
-    }
-
-    // Reset
-    setTouchStart(0);
-    setTouchEnd(0);
   };
 
   return (
@@ -153,59 +114,28 @@ export default function Portfolio() {
         </p>
       </motion.div>
 
-      {/* Carousel for Mobile, Tablet, and Desktop */}
-      <div className="block xl:hidden px-4">
-        <div className="relative max-w-md mx-auto">
-          {/* Carousel Container */}
-          <div
-            className="relative overflow-visible"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {portfolioItems.map((item, index) => (
-                <div key={index} className="min-w-full px-2">
-                  <SpotlightCard className="overflow-hidden p-6" spotlightColor="rgba(249, 115, 22, 0.25)">
-                    {/* Content */}
-                    <div className="flex flex-col items-start">
-                      <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
-                      <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
-                      <button
-                        onClick={() => handleOpenLink(item.link)}
-                        className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300"
-                      >
-                        {language === "en" ? "View Project" : "Lihat Proyek"}
-                      </button>
+      {/* Scrollable List for Mobile, Tablet, and Desktop (< XL) */}
+      <div className="block xl:hidden">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-8 touch-pan-x scrollbar-hide">
+            {portfolioItems.map((item, index) => (
+              <div key={index} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] snap-center">
+                <SpotlightCard className="overflow-hidden p-6 h-full" spotlightColor="rgba(249, 115, 22, 0.25)">
+                  {/* Content */}
+                  <div className="flex flex-col items-start h-full justify-between">
+                    <div>
+                        <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
+                        <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
                     </div>
-                  </SpotlightCard>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-10"
-            aria-label="Previous"
-          >
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-10"
-            aria-label="Next"
-          >
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+                    <button
+                      onClick={() => handleOpenLink(item.link)}
+                      className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300 w-full md:w-auto"
+                    >
+                      {language === "en" ? "View Project" : "Lihat Proyek"}
+                    </button>
+                  </div>
+                </SpotlightCard>
+              </div>
+            ))}
         </div>
       </div>
 
