@@ -49,7 +49,7 @@ export default function AboutMe() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="flex-1"
           >
-            <p className="text-lg md:text-xl font-['Montserrat'] leading-relaxed text-center md:text-left">
+            <p className="text-lg md:text-xl font-['Montserrat'] leading-relaxed text-right md:text-left">
               {language === "en" ? (
                 <>
                   I'm <span className="font-semibold">Mahes Satya Ramadhan Lubis</span>, also known as{" "}
