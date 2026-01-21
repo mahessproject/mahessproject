@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { NavigationProps } from "../types";
 
@@ -83,15 +84,17 @@ const Navigation: React.FC<NavigationProps> = ({ milestones, currentIndex, onSel
               >
                 {/* Dot Container */}
                 <div
-                  className={`relative z-10 w-4 h-4 rounded-full transition-all duration-300 ${
-                    isActive ? "bg-accent scale-150 ring-4 ring-accent/20" : "bg-gray-600 group-hover:bg-gray-400"
+                  className={`relative z-10 w-4 h-4 transition-all duration-300 ${
+                    isActive ? "scale-[5]" : "rounded-full bg-gray-600 group-hover:bg-gray-400"
                   }`}
                 >
                   {isActive && (
-                    <motion.div
-                      layoutId="active-glow"
-                      className="absolute inset-0 rounded-full bg-accent blur-sm"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    <Image
+                      src="/aboutme/dot.svg"
+                      alt="Milestone dot"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
                     />
                   )}
                 </div>
