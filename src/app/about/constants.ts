@@ -6,7 +6,7 @@ export const MILESTONES_EN: Milestone[] = [
     year: "",
     title: "Graphic Design",
     description:
-      "Designed eye-catching posters and professional logos using Adobe Illustrator, Affinity Designer, and Canva. Created compelling product mockups and branding materials with Photoshop to help clients establish their visual identity.",
+      "Designing eye-catching visualizations and professional branding identities for global clients.",
     image: "/aboutme/graphic.svg",
   },
   {
@@ -14,7 +14,7 @@ export const MILESTONES_EN: Milestone[] = [
     year: "",
     title: "Freelance Videography & Photography",
     description:
-      "Captured stunning photos and dynamic videos for various events and social media campaigns. Utilized professional mirrorless cameras with CapCut, Adobe Premiere Pro, After Effects, and Lightroom to deliver polished results.",
+      "Capturing stunning moments and producing dynamic videos for creative campaigns.",
     image: "/aboutme/photo_video.svg",
   },
   {
@@ -22,7 +22,7 @@ export const MILESTONES_EN: Milestone[] = [
     year: "",
     title: "Content Creator",
     description:
-      "Developed engaging content across multiple platforms with storytelling that resonates with audiences. Crafted compelling narratives through visual media and optimized posts for maximum engagement to build authentic connections.",
+      "Creating engaging digital content with storytelling that resonates with audiences.",
     image: "/aboutme/contentcreator.svg",
   },
   {
@@ -30,7 +30,7 @@ export const MILESTONES_EN: Milestone[] = [
     year: "",
     title: "UI/UX Design",
     description:
-      "Crafted intuitive and user-centered digital experiences through user research and interactive prototypes. Designed seamless interfaces with Figma and Adobe XD, transforming user needs into elegant designs that drive engagement.",
+      "Crafting intuitive digital experiences through user research and sleek interfaces.",
     image: "/aboutme/editing.svg",
   },
 ];
@@ -41,7 +41,7 @@ export const MILESTONES_ID: Milestone[] = [
     year: "",
     title: "Desain Grafis",
     description:
-      "Merancang poster yang menarik dan logo profesional menggunakan Adobe Illustrator, Affinity Designer, dan Canva. Membuat mockup produk dan materi branding yang menarik dengan Photoshop untuk membantu klien membangun identitas visual mereka.",
+      "Merancang visual menarik dan identitas branding profesional untuk berbagai klien.",
     image: "/aboutme/graphic.svg",
   },
   {
@@ -49,7 +49,7 @@ export const MILESTONES_ID: Milestone[] = [
     year: "",
     title: "Videografi & Fotografi Lepas",
     description:
-      "Mengabadikan foto-foto menakjubkan dan video dinamis untuk berbagai acara dan kampanye media sosial. Menggunakan kamera mirrorless profesional dengan CapCut, Adobe Premiere Pro, After Effects, dan Lightroom untuk memberikan hasil yang sempurna.",
+      "Mengabadikan momen memukau dan memproduksi video dinamis untuk kampanye kreatif.",
     image: "/aboutme/photo_video.svg",
   },
   {
@@ -57,7 +57,7 @@ export const MILESTONES_ID: Milestone[] = [
     year: "",
     title: "Kreator Konten",
     description:
-      "Mengembangkan konten menarik di berbagai platform dengan gaya bercerita yang sesuai dengan audiens. Menyusun narasi yang menarik melalui media visual dan mengoptimalkan postingan untuk keterlibatan maksimal guna membangun koneksi autentik.",
+      "Menciptakan konten digital menarik dengan gaya bercerita yang menyentuh audiens.",
     image: "/aboutme/contentcreator.svg",
   },
   {
@@ -65,7 +65,7 @@ export const MILESTONES_ID: Milestone[] = [
     year: "",
     title: "Desain UI/UX",
     description:
-      "Menciptakan pengalaman digital yang intuitif dan berpusat pada pengguna melalui riset pengguna dan prototipe interaktif. Merancang antarmuka yang mulus dengan Figma dan Adobe XD, mengubah kebutuhan pengguna menjadi desain elegan yang mendorong keterlibatan.",
+      "Merancang pengalaman digital intuitif melalui riset pengguna dan antarmuka elegan.",
     image: "/aboutme/editing.svg",
   },
 ];
