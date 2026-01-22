@@ -33,7 +33,18 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
 
     setIsSending(true);
 
-    emailjs.sendForm("service_ggz0wnb", "template_p0m9zfa", form.current, "6yu3me9CoQhcHqAqd").then(
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+      toast.error("Konfigurasi email tidak ditemukan.");
+      setIsSending(false);
+      return;
+    }
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
       (result) => {
         console.log("Email berhasil dikirim:", result.text);
         toast.success("Email berhasil dikirim!");
