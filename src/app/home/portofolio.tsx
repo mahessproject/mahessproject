@@ -117,25 +117,25 @@ export default function Portfolio() {
       {/* Scrollable List for Mobile, Tablet, and Desktop (< XL) */}
       <div className="block xl:hidden">
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 pb-8 touch-pan-x scrollbar-hide">
-            {portfolioItems.map((item, index) => (
-              <div key={index} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] snap-center">
-                <SpotlightCard className="overflow-hidden p-6 h-full" spotlightColor="rgba(249, 115, 22, 0.25)">
-                  {/* Content */}
-                  <div className="flex flex-col items-start h-full justify-between">
-                    <div>
-                        <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
-                    </div>
-                    <button
-                      onClick={() => handleOpenLink(item.link)}
-                      className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300 w-full md:w-auto"
-                    >
-                      {language === "en" ? "View Project" : "Lihat Proyek"}
-                    </button>
+          {portfolioItems.map((item, index) => (
+            <div key={index} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] snap-center">
+              <SpotlightCard className="overflow-hidden p-6 h-full" spotlightColor="rgba(249, 115, 22, 0.25)">
+                {/* Content */}
+                <div className="flex flex-col items-start h-full justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold font-['Montserrat'] text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-400 font-['Montserrat'] mb-4">{item.description}</p>
                   </div>
-                </SpotlightCard>
-              </div>
-            ))}
+                  <button
+                    onClick={() => handleOpenLink(item.link)}
+                    className="bg-[#f97316] hover:bg-[#fb923c] text-white font-semibold font-['Montserrat'] px-6 py-3 rounded-lg transition-colors duration-300 w-full md:w-auto"
+                  >
+                    {language === "en" ? "View Project" : "Lihat Proyek"}
+                  </button>
+                </div>
+              </SpotlightCard>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -7,6 +7,7 @@ import EmailPopup from "@/components/EmailPopup";
 import { MILESTONES_EN, MILESTONES_ID } from "./constants";
 import Slide from "./components/Slide";
 import Navigation from "./components/Navigation";
+import { MobileExperience } from "./components/MobileExperience";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Experience() {
@@ -17,19 +18,43 @@ export default function Experience() {
 
   const milestones = useMemo(() => (language === "en" ? MILESTONES_EN : MILESTONES_ID), [language]);
 
-  const handleNext = useCallback(() => {
-    if (currentIndex < milestones.length - 1) {
-      setDirection(1);
-      setCurrentIndex((prev) => prev + 1);
+  // Helper safe index for desktop view to avoid crashing when currentIndex is at "empty" state (equals length)
+  const safeIndex = currentIndex >= milestones.length ? 0 : currentIndex;
+
+  useEffect(() => {
+    // Auto reset from empty state
+    if (currentIndex === milestones.length) {
+      const timer = setTimeout(() => {
+        setDirection(3); // Special code for "Shuffle In"
+        setCurrentIndex(0);
+      }, 1200); // 1.2s delay for empty state viewing
+      return () => clearTimeout(timer);
     }
   }, [currentIndex, milestones.length]);
 
+  const handleNext = useCallback(
+    (customDirection: number = 1) => {
+      setDirection(customDirection);
+      if (currentIndex < milestones.length - 1) {
+        setCurrentIndex((prev) => prev + 1);
+      } else {
+        // Go to empty state
+        setCurrentIndex(milestones.length);
+      }
+    },
+    [currentIndex, milestones.length],
+  );
+
   const handlePrev = useCallback(() => {
+    setDirection(-1);
+    // Loop to end if at start, or just go back
     if (currentIndex > 0) {
-      setDirection(-1);
       setCurrentIndex((prev) => prev - 1);
+    } else {
+      // If at start, maybe don't go to empty state backwards? Just loop to last card.
+      setCurrentIndex(milestones.length - 1);
     }
-  }, [currentIndex]);
+  }, [currentIndex, milestones.length]);
 
   const handleSelect = useCallback(
     (index: number) => {
@@ -139,19 +164,35 @@ export default function Experience() {
 
       {/* Main Content */}
       <div className="relative h-screen flex items-center justify-center px-4 md:px-8 lg:px-16">
-        <AnimatePresence mode="wait" custom={direction}>
-          <Slide key={currentIndex} milestone={milestones[currentIndex]} direction={direction} />
-        </AnimatePresence>
+        {/* Desktop View */}
+        <div className="hidden md:block w-full">
+          <AnimatePresence mode="wait" custom={direction}>
+            <Slide key={safeIndex} milestone={milestones[safeIndex]} direction={direction} />
+          </AnimatePresence>
+        </div>
+
+        {/* Mobile View */}
+        <div className="block md:hidden w-full h-full">
+          <MobileExperience
+            milestones={milestones}
+            currentIndex={currentIndex}
+            onNext={handleNext}
+            onPrev={handlePrev}
+            direction={direction}
+          />
+        </div>
       </div>
 
-      {/* Navigation */}
-      <Navigation
-        milestones={milestones}
-        currentIndex={currentIndex}
-        onSelect={handleSelect}
-        onNext={handleNext}
-        onPrev={handlePrev}
-      />
+      {/* Navigation (Desktop Only) */}
+      <div className="hidden md:block">
+        <Navigation
+          milestones={milestones}
+          currentIndex={safeIndex}
+          onSelect={handleSelect}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
+      </div>
 
       {/* Email Popup */}
       <EmailPopup isOpen={isEmailPopupOpen} onClose={() => setIsEmailPopupOpen(false)} />
