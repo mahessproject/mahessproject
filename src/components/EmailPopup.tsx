@@ -56,7 +56,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
         console.error("Gagal mengirim email:", error.text);
         toast.error("Gagal mengirim email.");
         setIsSending(false);
-      }
+      },
     );
   };
 

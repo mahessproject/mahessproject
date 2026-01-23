@@ -25,8 +25,6 @@ export default function Main() {
 
   // Data untuk LogoLoop (11 logo)
   const logos = [
-    { src: "/ae.svg", alt: "Company 1" },
-    { src: "/pr.svg", alt: "Company 2" },
     { src: "/lr.svg", alt: "Company 3" },
     { src: "/ai.svg", alt: "Company 4" },
     { src: "/canva.svg", alt: "Company 5" },
